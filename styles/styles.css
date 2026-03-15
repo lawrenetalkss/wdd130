@@ -2,6 +2,26 @@ main {
     max-width: 840px;
 }
 
+main img {
+    margin: 10px;
+    text-align: center
+}
+
+h1 {
+    margin: 10px;
+    text-align: center;
+}
+
+h2 {
+    border-bottom: 2px solid #222;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    box-shadow: 0 0 30px #333;
+}
+
 aside {
     width: 20rem;
     margin: 1rem;
