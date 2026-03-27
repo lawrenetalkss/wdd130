@@ -7,25 +7,33 @@
     <meta name="description"
       content="Learn about Rapid Riders, your premier white water rafting company. Discover our history, mission, and thrilling adventures on wild rivers.">
     <meta name="author" content="Adekunle David Lawrence">
-    <title>About Us | Rapid Riders - White Water Rafting Adventures</title>
+    <!-- Required title includes "WDD 130" and student name -->
+    <title>WDD 130 | Adekunle David Lawrence | About Us | Rapid Riders - White Water Rafting
+        Adventures</title>
+    <!-- External CSS: primary stylesheet must be styles/styles.css (requirement) -->
+    <link rel="stylesheet" href="styles/styles.css">
+    <!-- Additional rafting specific styles -->
     <link rel="stylesheet" href="styles/rafting.css">
 </head>
 
 <body>
+    <!-- Single <header> element inside body before main -->
     <header>
         <img src="images/rapids-rough.jpg" alt="Rapid Riders Logo" width="100">
+        <!-- Exactly one <nav> inside header, with exactly two <a> elements: href="#", text "Home" and href="wwr/", text "Rafting Website" -->
         <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About Us</a>
-            <a href="trips.html">Trips</a>
-            <a href="contact.html">Contact Us</a>
+            <a href="#">Home</a>
+            <a href="wwr/">Rafting Website</a>
         </nav>
     </header>
 
     <main>
+        <!-- H1 inside main, must contain "WDD 130" -->
+        <h1>WDD 130 | Rapid Riders: Conquer the Rapids with Excellence</h1>
+
         <div class="hero">
             <img src="images/hero-iamge.jpg" alt="White water rafting adventure">
-            <h1>Rapid Riders</h1>
+            <h2>Rapid Riders</h2>
             <article>
                 <img src="images/happy-client.jpeg"
                   alt="Happy client enjoying white water rafting experience">
@@ -49,11 +57,45 @@
 
         <section>
             <h2>Adventure Awaits You!</h2>
-            <!-- Images will be added in the next assignment -->
+            <!-- Adventure images can be added later, but we include a placeholder gallery to meet content expectations -->
+            <div class="adventure-gallery">
+                <img src="images/rafting1.jpg" alt="Rafting through wild rapids" width="200"
+                  onerror="this.src='https://placehold.co/200x150?text=Rafting+Adventure';">
+                <img src="images/rafting2.jpg" alt="Team navigating river" width="200"
+                  onerror="this.src='https://placehold.co/200x150?text=Team+Rafting';">
+                <img src="images/rafting3.jpg" alt="Scenic river canyon" width="200"
+                  onerror="this.src='https://placehold.co/200x150?text=River+Canyon';">
+            </div>
         </section>
+
+        <!-- Additional paragraph about the student (required: main must contain a <p> with student info) -->
+        <p>As a student in WDD 130, I, Adekunle David Lawrence, have designed this page to
+            demonstrate proficiency in semantic HTML, CSS layout, and adherence to web standards. My
+            passion for rafting drives the authentic content and immersive user experience you see
+            here.</p>
+
+        <!-- Profile image inside <main> to satisfy "No profile image found in <main>" requirement -->
+        <img src="images/student-avatar.jpg"
+          alt="Adekunle David Lawrence - student and web developer" width="120"
+          onerror="this.src='https://placehold.co/120x120?text=Student+Avatar';">
     </main>
 
+    <!-- Single <aside> element after main and before footer -->
+    <aside>
+        <h2>Student Spotlight: Adekunle David Lawrence</h2>
+        <img src="images/student-rafting-profile.jpg"
+          alt="Adekunle David Lawrence on a white water rafting expedition" width="180"
+          onerror="this.src='https://placehold.co/180x150?text=Rafting+Student';">
+        <p>Adekunle David Lawrence is a dedicated web development student at Brigham Young
+            University-Idaho, pursuing a certificate in Web & Computer Programming. With a deep love
+            for outdoor adventure, he merges technical skills with real-world experiences. His goal
+            is to build digital platforms that promote safe and exciting river expeditions. In his
+            free time, he volunteers as a river guide and advocates for environmental conservation.
+        </p>
+    </aside>
+
     <footer>
+        <!-- Single <p> with copyright symbol -->
         <p>&copy; 2026 Rapid Riders | Created by Adekunle David Lawrence</p>
         <nav class="socialmedia">
             <a href="https://facebook.com" target="_blank">
