@@ -62,7 +62,7 @@ nav a:hover {
 }
 
 /* ============================================ */
-/* FIXED: Header Styling - Ensure ALL text is white */
+/* FIXED: Header Styling - Complete contrast fix */
 /* ============================================ */
 header {
     display: flex;
@@ -89,7 +89,7 @@ header nav {
     padding: 0;
 }
 
-/* Navigation links - white text on dark blue background (12.84:1 contrast ✅) */
+/* Navigation links - white text on dark blue background ✅ */
 header nav a {
     display: inline-block;
     margin: 0 4px;
@@ -106,21 +106,25 @@ header nav a:hover {
 }
 
 /* ============================================ */
-/* CRITICAL FIX: Ensure no dark text appears in header */
+/* CRITICAL FIX: Force ALL header text to be white */
 /* ============================================ */
 
-/* All text elements in header MUST be white */
+/* Every single element in header gets white text */
 header,
-header *,
-header *::before,
-header *::after {
+header * {
     color: var(--text-light) !important;
 }
 
-/* EXCEPTION: Only allow dark text on hover states */
+/* Exception: Hover states for navigation links */
 header nav a:hover,
 header nav a:hover * {
     color: var(--text-dark) !important;
+}
+
+/* Exception: Images don't need text color */
+header img,
+header img * {
+    color: initial !important;
 }
 
 /* ============================================ */
