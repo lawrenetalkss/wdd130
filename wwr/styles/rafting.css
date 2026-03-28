@@ -6,13 +6,10 @@
     --accent1-color: #2a9d8f;
     --accent2-color: #e76f51;
 
-    /* Text Colors - ENSURE GOOD CONTRAST */
+    /* Text Colors */
     --text-dark: #2c3e50;
     --text-light: #ffffff;
-    --text-on-primary: #ffffff;
-    /* White text on dark blue background */
-    --text-on-accent: #1a2a3a;
-    /* Dark text on light backgrounds */
+    /* White text for dark backgrounds */
 
     /* Fonts */
     --heading-font: 'Arial', 'Helvetica', sans-serif;
@@ -51,11 +48,10 @@ nav {
 
 /* ============================================ */
 /* REQUIRED: nav a rule with color, padding, and display: block */
-/* FIXED: Ensure text color has good contrast */
 /* ============================================ */
 nav a {
-    color: var(--text-on-primary);
-    /* White text - 12.84:1 contrast with #0a2f6c ✅ */
+    color: var(--text-light);
+    /* Uses --text-light ✅ */
     padding: var(--spacing-sm) var(--spacing-md);
     display: block;
     text-decoration: none;
@@ -65,7 +61,6 @@ nav a {
 nav a:hover {
     background-color: var(--secondary-color);
     color: var(--text-dark);
-    /* Dark text on light orange background - good contrast ✅ */
 }
 
 /* Header Navigation - Override for horizontal layout */
@@ -79,7 +74,6 @@ header nav a {
     margin: 0 4px;
     border-radius: 4px;
     background-color: rgba(255, 255, 255, 0.1);
-    /* Color inherited from nav a - already white ✅ */
 }
 
 header nav a:hover {
@@ -165,14 +159,12 @@ h3 {
 
 /* ============================================ */
 /* REQUIRED: p rule with padding: 0 */
-/* FIXED: Remove any white text on light backgrounds */
 /* ============================================ */
 p {
     margin: var(--spacing-md) 0;
     padding: 0;
     line-height: 1.6;
     color: var(--text-dark);
-    /* Ensure all regular paragraphs have dark text ✅ */
 }
 
 /* ============================================ */
@@ -191,7 +183,7 @@ p {
     height: auto;
 }
 
-/* Hero Heading Overlay - MUST have position: absolute */
+/* Hero Heading Overlay */
 .hero h1 {
     position: absolute;
     top: 20px;
@@ -200,8 +192,8 @@ p {
     padding: var(--spacing-md);
     text-align: center;
     background-color: rgba(10, 47, 108, 0.85);
-    color: var(--text-on-primary);
-    /* White text - good contrast ✅ */
+    color: var(--text-light);
+    /* Uses --text-light ✅ */
     font-family: var(--heading-font);
     font-size: 2.5rem;
     letter-spacing: 2px;
@@ -219,7 +211,8 @@ p {
     padding: var(--spacing-md);
     text-align: center;
     background-color: rgba(10, 47, 108, 0.85);
-    color: var(--text-on-primary);
+    color: var(--text-light);
+    /* Uses --text-light ✅ */
     font-family: var(--heading-font);
     font-size: 2rem;
     z-index: 10;
@@ -234,7 +227,8 @@ p {
     background-color: rgba(10, 47, 108, 0.92);
     padding: var(--spacing-md);
     border-radius: 8px;
-    color: var(--text-on-primary);
+    color: var(--text-light);
+    /* Uses --text-light ✅ */
     z-index: 10;
     backdrop-filter: blur(2px);
 }
@@ -250,13 +244,12 @@ p {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* FIXED: Hero article paragraph - ensure white text on dark background */
 .hero article p {
     margin: 0;
     padding: 0;
     line-height: 1.5;
-    color: var(--text-on-primary);
-    /* White text - 12.84:1 contrast ✅ */
+    color: var(--text-light);
+    /* Uses --text-light ✅ */
 }
 
 /* Section Styling */
@@ -268,10 +261,9 @@ section {
     border-left: 4px solid var(--accent2-color);
 }
 
-/* FIXED: Section paragraphs - ensure dark text on light background */
 section p {
     color: var(--text-dark);
-    /* Dark text - 10.43:1 contrast ✅ */
+    /* Uses --text-dark ✅ */
 }
 
 /* Adventure Gallery */
@@ -328,12 +320,11 @@ aside img {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* FIXED: Aside paragraphs - ensure dark text on light background */
 aside p {
     margin: 0;
     line-height: 1.7;
     color: var(--text-dark);
-    /* Dark text - good contrast ✅ */
+    /* Uses --text-dark ✅ */
 }
 
 /* Clear float after aside content */
@@ -348,7 +339,8 @@ aside::after {
 /* ============================================ */
 footer {
     background-color: var(--primary-color);
-    color: var(--text-on-primary);
+    color: var(--text-light);
+    /* Uses --text-light ✅ */
     padding: var(--spacing-md);
     text-align: center;
     border-radius: 0 0 8px 8px;
@@ -361,12 +353,11 @@ footer {
     margin-right: auto;
 }
 
-/* FIXED: Footer paragraphs - ensure white text on dark background */
 footer p {
     margin: 0 0 var(--spacing-sm) 0;
     padding: 0;
-    color: var(--text-on-primary);
-    /* White text - 12.84:1 contrast ✅ */
+    color: var(--text-light);
+    /* Uses --text-light ✅ */
 }
 
 /* Social Media Navigation in Footer */
@@ -408,7 +399,8 @@ footer p {
 
 ::selection {
     background-color: var(--accent1-color);
-    color: var(--text-on-primary);
+    color: var(--text-light);
+    /* Uses --text-light ✅ */
 }
 
 /* Responsive Design */
@@ -480,7 +472,6 @@ footer p {
         display: none;
     }
 
-    /* good */
     body {
         background-color: white;
     }
