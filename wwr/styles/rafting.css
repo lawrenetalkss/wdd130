@@ -6,9 +6,13 @@
     --accent1-color: #2a9d8f;
     --accent2-color: #e76f51;
 
-    /* Text Colors */
+    /* Text Colors - ENSURE GOOD CONTRAST */
     --text-dark: #2c3e50;
     --text-light: #ffffff;
+    --text-on-primary: #ffffff;
+    /* White text on dark blue background */
+    --text-on-accent: #1a2a3a;
+    /* Dark text on light backgrounds */
 
     /* Fonts */
     --heading-font: 'Arial', 'Helvetica', sans-serif;
@@ -47,9 +51,11 @@ nav {
 
 /* ============================================ */
 /* REQUIRED: nav a rule with color, padding, and display: block */
+/* FIXED: Ensure text color has good contrast */
 /* ============================================ */
 nav a {
-    color: var(--text-light);
+    color: var(--text-on-primary);
+    /* White text - 12.84:1 contrast with #0a2f6c ✅ */
     padding: var(--spacing-sm) var(--spacing-md);
     display: block;
     text-decoration: none;
@@ -59,6 +65,7 @@ nav a {
 nav a:hover {
     background-color: var(--secondary-color);
     color: var(--text-dark);
+    /* Dark text on light orange background - good contrast ✅ */
 }
 
 /* Header Navigation - Override for horizontal layout */
@@ -72,6 +79,7 @@ header nav a {
     margin: 0 4px;
     border-radius: 4px;
     background-color: rgba(255, 255, 255, 0.1);
+    /* Color inherited from nav a - already white ✅ */
 }
 
 header nav a:hover {
@@ -112,10 +120,8 @@ main {
 }
 
 /* ============================================ */
-/* FIX #1: ADDED main img rule with ALL required properties */
-/* width, height, border, padding, and box-shadow */
-/* ============================================ */
 /* REQUIRED: main img rule with width, height, border, padding, and box-shadow */
+/* ============================================ */
 main img {
     width: 150px;
     height: 150px;
@@ -131,104 +137,9 @@ main > img {
     border-radius: 50%;
 }
 
-/* Hero Section */
-.hero {
-    position: relative;
-    margin-bottom: var(--spacing-lg);
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-.hero img {
-    display: block;
-    width: 100%;
-    height: auto;
-}
-
-/* Hero Heading Overlay */
-.hero h1,
-.hero h2 {
-    position: absolute;
-    top: 20px;
-    left: 0;
-    width: 100%;
-    padding: var(--spacing-md);
-    text-align: center;
-    background-color: rgba(10, 47, 108, 0.85);
-    color: var(--text-light);
-    font-family: var(--heading-font);
-    font-size: 2.5rem;
-    letter-spacing: 2px;
-    z-index: 10;
-}
-
-.hero h2 {
-    font-size: 2rem;
-}
-
-/* Hero Article Overlay */
-.hero article {
-    position: absolute;
-    bottom: 40px;
-    left: 20px;
-    right: 20px;
-    background-color: rgba(10, 47, 108, 0.92);
-    padding: var(--spacing-md);
-    border-radius: 8px;
-    color: var(--text-light);
-    z-index: 10;
-    backdrop-filter: blur(2px);
-}
-
-.hero article img {
-    float: right;
-    width: 150px;
-    height: auto;
-    margin-left: var(--spacing-md);
-    margin-bottom: var(--spacing-sm);
-    border-radius: 8px;
-    border: 2px solid var(--accent1-color);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.hero article p {
-    margin: 0;
-    padding: 0;
-    line-height: 1.5;
-    color: var(--text-light);
-}
-
-/* Section Styling */
-section {
-    margin: var(--spacing-lg) 0;
-    padding: var(--spacing-md);
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    border-left: 4px solid var(--accent2-color);
-}
-
-/* Adventure Gallery */
-.adventure-gallery {
-    display: flex;
-    gap: var(--spacing-md);
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: var(--spacing-md);
-}
-
-.adventure-gallery img {
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    width: 200px;
-    height: auto;
-}
-
-.adventure-gallery img:hover {
-    transform: scale(1.05);
-}
-
-/* Heading Styles */
+/* ============================================ */
+/* Heading Styles - General styles first */
+/* ============================================ */
 h1 {
     font-family: var(--heading-font);
     color: var(--primary-color);
@@ -254,21 +165,141 @@ h3 {
 
 /* ============================================ */
 /* REQUIRED: p rule with padding: 0 */
+/* FIXED: Remove any white text on light backgrounds */
 /* ============================================ */
 p {
     margin: var(--spacing-md) 0;
     padding: 0;
     line-height: 1.6;
+    color: var(--text-dark);
+    /* Ensure all regular paragraphs have dark text ✅ */
 }
 
 /* ============================================ */
-/* FIX #2: ADDED width to aside rule */
-/* FIX #3: CHANGED aside img width to 200px */
+/* Hero Section - Place AFTER general styles */
 /* ============================================ */
-/* REQUIRED: aside rule with width, margin, border, padding, background-color, and color */
+.hero {
+    position: relative;
+    margin-bottom: var(--spacing-lg);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.hero img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* Hero Heading Overlay - MUST have position: absolute */
+.hero h1 {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 100%;
+    padding: var(--spacing-md);
+    text-align: center;
+    background-color: rgba(10, 47, 108, 0.85);
+    color: var(--text-on-primary);
+    /* White text - good contrast ✅ */
+    font-family: var(--heading-font);
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    z-index: 10;
+    margin-bottom: 0;
+    border-bottom: none;
+    display: block;
+}
+
+.hero h2 {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 100%;
+    padding: var(--spacing-md);
+    text-align: center;
+    background-color: rgba(10, 47, 108, 0.85);
+    color: var(--text-on-primary);
+    font-family: var(--heading-font);
+    font-size: 2rem;
+    z-index: 10;
+}
+
+/* Hero Article Overlay */
+.hero article {
+    position: absolute;
+    bottom: 40px;
+    left: 20px;
+    right: 20px;
+    background-color: rgba(10, 47, 108, 0.92);
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    color: var(--text-on-primary);
+    z-index: 10;
+    backdrop-filter: blur(2px);
+}
+
+.hero article img {
+    float: right;
+    width: 150px;
+    height: auto;
+    margin-left: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+    border-radius: 8px;
+    border: 2px solid var(--accent1-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* FIXED: Hero article paragraph - ensure white text on dark background */
+.hero article p {
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    color: var(--text-on-primary);
+    /* White text - 12.84:1 contrast ✅ */
+}
+
+/* Section Styling */
+section {
+    margin: var(--spacing-lg) 0;
+    padding: var(--spacing-md);
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border-left: 4px solid var(--accent2-color);
+}
+
+/* FIXED: Section paragraphs - ensure dark text on light background */
+section p {
+    color: var(--text-dark);
+    /* Dark text - 10.43:1 contrast ✅ */
+}
+
+/* Adventure Gallery */
+.adventure-gallery {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: var(--spacing-md);
+}
+
+.adventure-gallery img {
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    width: 200px;
+    height: auto;
+}
+
+.adventure-gallery img:hover {
+    transform: scale(1.05);
+}
+
+/* ============================================ */
+/* Aside Styling */
+/* ============================================ */
 aside {
     width: 90%;
-    /* ← ADDED: missing width property */
     max-width: 1200px;
     margin: var(--spacing-md) auto;
     border: 1px solid var(--accent1-color);
@@ -286,10 +317,8 @@ aside h2 {
     margin-bottom: var(--spacing-md);
 }
 
-/* REQUIRED: aside img rule with width: 200px and height: auto */
 aside img {
     width: 200px;
-    /* ← CHANGED: was 180px, now 200px */
     height: auto;
     float: right;
     margin-left: var(--spacing-md);
@@ -299,9 +328,12 @@ aside img {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* FIXED: Aside paragraphs - ensure dark text on light background */
 aside p {
     margin: 0;
     line-height: 1.7;
+    color: var(--text-dark);
+    /* Dark text - good contrast ✅ */
 }
 
 /* Clear float after aside content */
@@ -312,30 +344,29 @@ aside::after {
 }
 
 /* ============================================ */
-/* FIX #4: ADDED margin-top and border-top to footer */
+/* Footer Styling */
 /* ============================================ */
-/* REQUIRED: footer rule with margin-top, border-top, and text-align: center */
 footer {
     background-color: var(--primary-color);
-    color: var(--text-light);
+    color: var(--text-on-primary);
     padding: var(--spacing-md);
     text-align: center;
     border-radius: 0 0 8px 8px;
     margin-bottom: var(--spacing-md);
     margin-top: var(--spacing-md);
-    /* ← ADDED: required margin-top */
     border-top: 3px solid var(--secondary-color);
-    /* ← ADDED: required border-top */
     max-width: 1200px;
     width: 90%;
     margin-left: auto;
     margin-right: auto;
 }
 
+/* FIXED: Footer paragraphs - ensure white text on dark background */
 footer p {
     margin: 0 0 var(--spacing-sm) 0;
     padding: 0;
-    color: var(--text-light);
+    color: var(--text-on-primary);
+    /* White text - 12.84:1 contrast ✅ */
 }
 
 /* Social Media Navigation in Footer */
@@ -377,7 +408,7 @@ footer p {
 
 ::selection {
     background-color: var(--accent1-color);
-    color: var(--text-light);
+    color: var(--text-on-primary);
 }
 
 /* Responsive Design */
