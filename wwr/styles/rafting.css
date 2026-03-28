@@ -61,28 +61,8 @@ nav a:hover {
     color: var(--text-dark);
 }
 
-/* Header Navigation - Override for horizontal layout */
-header nav {
-    background-color: transparent;
-    padding: 0;
-}
-
-/* FIXED: Navigation links - removed light background for better contrast */
-header nav a {
-    display: inline-block;
-    margin: 0 4px;
-    border-radius: 4px;
-    /* REMOVED: background-color: rgba(255, 255, 255, 0.1); - causes contrast issue */
-    padding: var(--spacing-sm) var(--spacing-md);
-}
-
-header nav a:hover {
-    background-color: var(--secondary-color);
-    color: var(--text-dark);
-}
-
 /* ============================================ */
-/* FIXED: Header Styling - Ensure all text is white */
+/* FIXED: Header Styling - Ensure ALL text is white */
 /* ============================================ */
 header {
     display: flex;
@@ -96,8 +76,6 @@ header {
     width: 90%;
     margin-left: auto;
     margin-right: auto;
-    /* Ensure all header text is white */
-    color: var(--text-light);
 }
 
 header img {
@@ -105,19 +83,44 @@ header img {
     height: auto;
 }
 
-/* Ensure any text elements in header inherit white color */
-header * {
-    color: inherit;
+/* Header Navigation */
+header nav {
+    background-color: transparent;
+    padding: 0;
 }
 
-/* But ensure navigation links are white (already set) */
+/* Navigation links - white text on dark blue background (12.84:1 contrast ✅) */
 header nav a {
+    display: inline-block;
+    margin: 0 4px;
+    border-radius: 4px;
+    padding: var(--spacing-sm) var(--spacing-md);
     color: var(--text-light);
+    text-decoration: none;
+    transition: all 0.3s ease;
 }
 
-/* Keep hover states working correctly - override inheritance */
 header nav a:hover {
+    background-color: var(--secondary-color);
     color: var(--text-dark);
+}
+
+/* ============================================ */
+/* CRITICAL FIX: Ensure no dark text appears in header */
+/* ============================================ */
+
+/* All text elements in header MUST be white */
+header,
+header *,
+header *::before,
+header *::after {
+    color: var(--text-light) !important;
+}
+
+/* EXCEPTION: Only allow dark text on hover states */
+header nav a:hover,
+header nav a:hover * {
+    color: var(--text-dark) !important;
 }
 
 /* ============================================ */
