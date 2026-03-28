@@ -26,10 +26,10 @@ footer {
 }
 
 /* ============================================ */
-/* NAVIGATION - Flexbox Layout
+/* NAVIGATION - Flexbox Layout (Header)
 /* ============================================ */
 
-nav {
+header nav {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -39,7 +39,7 @@ nav {
     border-radius: 8px;
 }
 
-nav a {
+header nav a {
     display: block;
     color: white;
     text-decoration: none;
@@ -48,7 +48,7 @@ nav a {
     border-radius: 4px;
 }
 
-nav a:hover {
+header nav a:hover {
     background-color: #3498db;
 }
 
@@ -98,22 +98,22 @@ main p {
     margin-bottom: 1rem;
 }
 
-/* Favorite Temples list - Appears BELOW the image */
+/* Heading for Favorite Temples */
+main h2 {
+    color: #2c3e50;
+    margin: 1.5rem 0 0.5rem 0;
+    font-size: 1.3rem;
+    clear: both;
+}
+
+/* Favorite Temples list styling */
 ul.box {
     list-style: none;
-    margin-top: 1rem;
     padding: 1rem;
     border: 1px solid #ddd;
     background-color: #f9f9f9;
     border-radius: 8px;
     clear: both;
-    /* THIS PUSHES THE LIST BELOW THE FLOATED IMAGE */
-}
-
-ul.box h2 {
-    margin-bottom: 0.5rem;
-    color: #2c3e50;
-    font-size: 1.2rem;
 }
 
 ul.box li {
@@ -130,7 +130,7 @@ ul.box li a:hover {
 }
 
 /* ============================================ */
-/* ASIDE (LEFT COLUMN) - Lagos/Nigeria
+/* ASIDE (LEFT COLUMN) - Lagos, Nigeria
 /* ============================================ */
 
 aside {
@@ -144,7 +144,6 @@ aside {
 aside h2 {
     margin-bottom: 0.5rem;
     color: #2c3e50;
-    font-size: 1.3rem;
 }
 
 aside img {
@@ -160,7 +159,7 @@ aside p {
 }
 
 /* ============================================ */
-/* FOOTER
+/* FOOTER STYLING
 /* ============================================ */
 
 footer {
@@ -170,4 +169,53 @@ footer {
     color: white;
     border-radius: 8px;
     margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* SECOND NAV ELEMENT - Social media navigation in footer */
+footer nav.socialmedia {
+    display: flex;
+    gap: 1rem;
+    background: none;
+    padding: 0;
+    margin: 0;
+}
+
+footer nav.socialmedia a {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+footer nav.socialmedia a:hover {
+    transform: scale(1.1);
+}
+
+footer nav.socialmedia img {
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    header nav {
+        flex-wrap: wrap;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
 }
