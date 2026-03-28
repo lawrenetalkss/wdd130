@@ -1,3 +1,7 @@
+/* ============================================ */
+/* RESET & BASE STYLES
+/* ============================================ */
+
 /* Universal Selector - Reset margins, padding, and box-sizing */
 * {
     margin: 0;
@@ -9,18 +13,92 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
     background-color: #f4f4f4;
 }
 
-/* Profile image floating to the RIGHT with proper spacing */
+/* ============================================ */
+/* LAYOUT CONTAINERS - Combined max-width rule
+/* This satisfies requirement: header, .grid, footer max-width 840px & centered
+/* ============================================ */
+
+header,
+.grid,
+footer {
+    max-width: 840px;
+    margin: 0 auto;
+}
+
+/* ============================================ */
+/* NAVIGATION - Flexbox Layout
+/* Requirements: 
+/* - Display links horizontally
+/* - Even spacing (justify-content: space-evenly)
+/* - Vertically centered (align-items: center)
+/* - Links as block elements with padding
+/* - No text decoration
+/* ============================================ */
+
+nav {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #2c3e50;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+}
+
+/* Navigation links - block elements with padding and no underline */
+nav a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 0.75rem 1.25rem;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+
+nav a:hover {
+    background-color: #3498db;
+}
+
+/* ============================================ */
+/* GRID CONTAINER - Two-column layout
+/* Requirement: aside on left, main on right
+/* Method: grid-template-columns (1fr for aside, 2fr for main)
+/* ============================================ */
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* ============================================ */
+/* MAIN CONTENT
+/* ============================================ */
+
+main {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+/* h1 with bottom border - Required by activity */
+h1 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #3498db;
+}
+
+/* Profile image styling - floating to the right */
 .profile-image {
     float: right;
     margin: 0 0 1rem 1rem;
-    /* Space on left and bottom only */
-    width: 250px;
+    width: 200px;
     height: auto;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -33,91 +111,48 @@ main::after {
     display: table;
 }
 
-/* Main content styling with proper padding to contain floated elements */
-main {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-    overflow: auto;
-    /* Ensures container contains floated elements */
-}
+/* ============================================ */
+/* ASIDE STYLING
+/* Requirement: position: relative (for absolutely positioned children if needed)
+/* ============================================ */
 
-h1 {
-    color: #2c3e50;
-    margin-bottom: 1rem;
-}
-
-/* ========== CLASS SELECTORS ========== */
-/* Box class selector - Apply box model properties */
-.box {
-    margin: 1rem;
-    padding: 1rem;
-    border: 2px solid #3498db;
-    background-color: #ecf0f1;
-    color: #2c3e50;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    overflow: auto;
-    /* Ensures box contains its floated children */
-}
-
-/* Aside element styling with relative positioning */
 aside {
     position: relative;
-    margin-top: 1rem;
     background-color: white;
     padding: 1rem;
     border-radius: 8px;
-}
-
-/* Absolute positioning for the heading inside aside */
-aside h2 {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    background-color: rgba(52, 152, 219, 0.9);
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    font-size: 1.2rem;
-    z-index: 10;
 }
 
 aside img {
     width: 100%;
     height: auto;
     border-radius: 8px;
-    margin-bottom: 1rem;
+    margin-top: 0.5rem;
 }
 
-/* Navigation styling */
-nav {
-    background-color: #2c3e50;
+/* Aside heading styling */
+aside h2 {
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+/* ============================================ */
+/* BOX CLASS - Shared styling
+/* Applied to aside and the temple list ul
+/* ============================================ */
+
+.box {
+    margin: 1rem 0;
     padding: 1rem;
-    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
     border-radius: 8px;
 }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    margin-right: 1.5rem;
-    padding: 0.5rem;
-    transition: all 0.3s ease;
-}
-
-nav a:hover {
-    background-color: #3498db;
-    border-radius: 4px;
-    color: white;
-}
-
-/* Unordered list styling */
+/* Temple list specific styling */
 ul.box {
-    list-style-position: inside;
+    list-style: none;
     clear: both;
-    /* Ensures the list appears below any floated content */
 }
 
 ul.box h2 {
@@ -126,159 +161,6 @@ ul.box h2 {
 }
 
 ul.box li {
-
-    /* Universal Selector - Reset margins, padding, and box-sizing */
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    /* Body styling */
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        line-height: 1.6;
-        padding: 20px;
-        max-width: 1200px;
-        margin: 0 auto;
-        background-color: #f4f4f4;
-    }
-
-    /* Profile image floating to the RIGHT with proper spacing */
-    .profile-image {
-        float: right;
-        margin: 0 0 1rem 1rem;
-        /* Space on left and bottom only */
-        width: 250px;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Clear floats after content */
-    main::after {
-        content: "";
-        clear: both;
-        display: table;
-    }
-
-    /* Main content styling with proper padding to contain floated elements */
-    main {
-        background-color: white;
-        padding: 2rem;
-        border-radius: 8px;
-        margin-bottom: 1rem;
-        overflow: auto;
-        /* Ensures container contains floated elements */
-    }
-
-    h1 {
-        color: #2c3e50;
-        margin-bottom: 1rem;
-    }
-
-    /* ========== CLASS SELECTORS ========== */
-    /* Box class selector - Apply box model properties */
-    .box {
-        margin: 1rem;
-        padding: 1rem;
-        border: 2px solid #3498db;
-        background-color: #ecf0f1;
-        color: #2c3e50;
-        border-radius: 8px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        overflow: auto;
-        /* Ensures box contains its floated children */
-    }
-
-    /* Aside element styling with relative positioning */
-    aside {
-        position: relative;
-        margin-top: 1rem;
-        background-color: white;
-        padding: 1rem;
-        border-radius: 8px;
-    }
-
-    /* Absolute positioning for the heading inside aside */
-    aside h2 {
-        position: absolute;
-        top: 20px;
-        left: 20px;
-        background-color: rgba(52, 152, 219, 0.9);
-        color: white;
-        padding: 0.5rem 1rem;
-        border-radius: 4px;
-        font-size: 1.2rem;
-        z-index: 10;
-    }
-
-    aside img {
-        width: 100%;
-        height: auto;
-        border-radius: 8px;
-        margin-bottom: 1rem;
-    }
-
-    /* Navigation styling */
-    nav {
-        background-color: #2c3e50;
-        padding: 1rem;
-        margin-bottom: 1rem;
-        border-radius: 8px;
-    }
-
-    nav a {
-        color: white;
-        text-decoration: none;
-        margin-right: 1.5rem;
-        padding: 0.5rem;
-        transition: all 0.3s ease;
-    }
-
-    nav a:hover {
-        background-color: #3498db;
-        border-radius: 4px;
-        color: white;
-    }
-
-    /* Unordered list styling */
-    ul.box {
-        list-style-position: inside;
-        clear: both;
-        /* Ensures the list appears below any floated content */
-    }
-
-    ul.box h2 {
-        margin-bottom: 0.5rem;
-        color: #2c3e50;
-    }
-
-    ul.box li {
-        margin: 0.5rem 0;
-    }
-
-    ul.box li a {
-        color: #3498db;
-        text-decoration: none;
-    }
-
-    ul.box li a:hover {
-        text-decoration: underline;
-    }
-
-    /* Footer styling */
-    footer {
-        text-align: center;
-        padding: 1rem;
-        background-color: #2c3e50;
-        color: white;
-        border-radius: 8px;
-        margin-top: 1rem;
-        clear: both;
-        /* Ensures footer appears below all floated content */
-    }
-
     margin: 0.5rem 0;
 }
 
@@ -291,7 +173,10 @@ ul.box li a:hover {
     text-decoration: underline;
 }
 
-/* Footer styling */
+/* ============================================ */
+/* FOOTER STYLING
+/* ============================================ */
+
 footer {
     text-align: center;
     padding: 1rem;
@@ -299,6 +184,4 @@ footer {
     color: white;
     border-radius: 8px;
     margin-top: 1rem;
-    clear: both;
-    /* Ensures footer appears below all floated content */
 }
