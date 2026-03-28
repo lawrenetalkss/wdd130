@@ -2,14 +2,12 @@
 /* RESET & BASE STYLES
 /* ============================================ */
 
-/* Universal Selector - Reset margins, padding, and box-sizing */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body styling */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
@@ -17,8 +15,7 @@ body {
 }
 
 /* ============================================ */
-/* LAYOUT CONTAINERS - Combined max-width rule
-/* This satisfies requirement: header, .grid, footer max-width 840px & centered
+/* HEADER, GRID, FOOTER - Combined max-width rule
 /* ============================================ */
 
 header,
@@ -30,12 +27,6 @@ footer {
 
 /* ============================================ */
 /* NAVIGATION - Flexbox Layout
-/* Requirements: 
-/* - Display links horizontally
-/* - Even spacing (justify-content: space-evenly)
-/* - Vertically centered (align-items: center)
-/* - Links as block elements with padding
-/* - No text decoration
 /* ============================================ */
 
 nav {
@@ -48,7 +39,6 @@ nav {
     border-radius: 8px;
 }
 
-/* Navigation links - block elements with padding and no underline */
 nav a {
     display: block;
     color: white;
@@ -64,8 +54,7 @@ nav a:hover {
 
 /* ============================================ */
 /* GRID CONTAINER - Two-column layout
-/* Requirement: aside on left, main on right
-/* Method: grid-template-columns (1fr for aside, 2fr for main)
+/* aside on LEFT (1fr), main on RIGHT (2fr)
 /* ============================================ */
 
 .grid {
@@ -77,16 +66,16 @@ nav a:hover {
 }
 
 /* ============================================ */
-/* MAIN CONTENT
+/* MAIN CONTENT (RIGHT COLUMN)
 /* ============================================ */
 
 main {
     background-color: white;
     padding: 1.5rem;
     border-radius: 8px;
+    overflow: auto;
 }
 
-/* h1 with bottom border - Required by activity */
 h1 {
     color: #2c3e50;
     margin-bottom: 1rem;
@@ -94,70 +83,37 @@ h1 {
     border-bottom: 2px solid #3498db;
 }
 
-/* Profile image styling - floating to the right */
+/* Profile image - FLOATS TO THE RIGHT */
 .profile-image {
     float: right;
-    margin: 0 0 1rem 1rem;
     width: 200px;
     height: auto;
+    margin: 0 0 1rem 1rem;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Clear floats after content */
-main::after {
-    content: "";
-    clear: both;
-    display: table;
+/* Paragraph text wraps around the image */
+main p {
+    margin-bottom: 1rem;
 }
 
-/* ============================================ */
-/* ASIDE STYLING
-/* Requirement: position: relative (for absolutely positioned children if needed)
-/* ============================================ */
-
-aside {
-    position: relative;
-    background-color: white;
-    padding: 1rem;
-    border-radius: 8px;
-}
-
-aside img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-top: 0.5rem;
-}
-
-/* Aside heading styling */
-aside h2 {
-    margin-bottom: 0.5rem;
-    color: #2c3e50;
-}
-
-/* ============================================ */
-/* BOX CLASS - Shared styling
-/* Applied to aside and the temple list ul
-/* ============================================ */
-
-.box {
-    margin: 1rem 0;
+/* Favorite Temples list - Appears BELOW the image */
+ul.box {
+    list-style: none;
+    margin-top: 1rem;
     padding: 1rem;
     border: 1px solid #ddd;
     background-color: #f9f9f9;
     border-radius: 8px;
-}
-
-/* Temple list specific styling */
-ul.box {
-    list-style: none;
     clear: both;
+    /* THIS PUSHES THE LIST BELOW THE FLOATED IMAGE */
 }
 
 ul.box h2 {
     margin-bottom: 0.5rem;
     color: #2c3e50;
+    font-size: 1.2rem;
 }
 
 ul.box li {
@@ -174,7 +130,37 @@ ul.box li a:hover {
 }
 
 /* ============================================ */
-/* FOOTER STYLING
+/* ASIDE (LEFT COLUMN) - Lagos/Nigeria
+/* ============================================ */
+
+aside {
+    position: relative;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+aside h2 {
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+    font-size: 1.3rem;
+}
+
+aside img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 0.5rem 0;
+}
+
+aside p {
+    color: #555;
+    line-height: 1.6;
+}
+
+/* ============================================ */
+/* FOOTER
 /* ============================================ */
 
 footer {
