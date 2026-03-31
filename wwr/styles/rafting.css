@@ -46,7 +46,6 @@ body {
 
 /* ============================================ */
 /* HEADER - CSS Grid Layout
-/* Creates horizontal layout between logo and navigation
 /* ============================================ */
 header {
     display: grid;
@@ -66,7 +65,6 @@ header img {
 }
 
 /* NAVIGATION - CSS Flex Layout
-/* Creates horizontal layout for nav links
 /* ============================================ */
 header nav {
     display: flex;
@@ -104,7 +102,7 @@ main {
 }
 
 /* ============================================ */
-/* HERO SECTION
+/* HERO SECTION - WITH FLOAT: RIGHT
 /* ============================================ */
 .hero {
     position: relative;
@@ -136,6 +134,7 @@ main {
     z-index: 10;
 }
 
+/* FIXED: Using float: right as required by wireframe */
 .hero article {
     position: absolute;
     bottom: 40px;
@@ -146,25 +145,26 @@ main {
     border-radius: 8px;
     color: var(--text-light);
     z-index: 10;
-    display: flex;
-    gap: var(--spacing-md);
-    align-items: center;
+    overflow: auto;
+    /* Clears float */
 }
 
+/* FIXED: Image floats to the right */
 .hero article img {
     width: 150px;
     height: auto;
     border-radius: 8px;
     border: 2px solid var(--secondary-color);
-    order: 2;
-    margin-left: auto;
+    float: right;
+    /* ← REQUIRED by wireframe */
+    margin-left: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
 }
 
+/* Text automatically wraps around the floated image */
 .hero article p {
-    flex: 1;
     margin: 0;
     color: var(--text-light);
-    order: 1;
 }
 
 /* ============================================ */
@@ -349,13 +349,11 @@ footer nav.socialmedia img {
         right: 10px;
     }
 
+    /* On mobile, float doesn't work well - switch to block */
     .hero article img {
-        order: 1;
-        margin: 0 auto;
-    }
-
-    .hero article p {
-        order: 2;
+        float: none;
+        margin: 0 auto var(--spacing-md) auto;
+        display: block;
     }
 
     .history-content {
