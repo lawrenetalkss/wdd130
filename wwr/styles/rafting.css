@@ -45,7 +45,7 @@ body {
 }
 
 /* ============================================ */
-/* HEADER - CSS Grid Layout
+/* HEADER - Wireframe Layout
 /* ============================================ */
 header {
     display: grid;
@@ -62,10 +62,10 @@ header {
 header img {
     max-width: 100px;
     height: auto;
+    display: block;
+    border-radius: 8px;
 }
 
-/* NAVIGATION - CSS Flex Layout
-/* ============================================ */
 header nav {
     display: flex;
     justify-content: flex-end;
@@ -102,7 +102,10 @@ main {
 }
 
 /* ============================================ */
-/* HERO SECTION - WITH FLOAT: RIGHT
+/* HERO SECTION - Wireframe Specification
+/* Position: relative container
+/* h1: absolute positioned at top center
+/* article: absolute positioned at bottom with float right image
 /* ============================================ */
 .hero {
     position: relative;
@@ -111,7 +114,7 @@ main {
     overflow: hidden;
 }
 
-.hero img:first-child {
+.hero > img:first-child {
     display: block;
     width: 100%;
     height: auto;
@@ -134,7 +137,6 @@ main {
     z-index: 10;
 }
 
-/* FIXED: Using float: right as required by wireframe */
 .hero article {
     position: absolute;
     bottom: 40px;
@@ -146,29 +148,27 @@ main {
     color: var(--text-light);
     z-index: 10;
     overflow: auto;
-    /* Clears float */
 }
 
-/* FIXED: Image floats to the right */
 .hero article img {
     width: 150px;
     height: auto;
     border-radius: 8px;
     border: 2px solid var(--secondary-color);
     float: right;
-    /* ← REQUIRED by wireframe */
     margin-left: var(--spacing-md);
     margin-bottom: var(--spacing-sm);
 }
 
-/* Text automatically wraps around the floated image */
 .hero article p {
     margin: 0;
     color: var(--text-light);
+    line-height: 1.6;
 }
 
 /* ============================================ */
-/* HISTORY SECTION - 3 Column Layout (Text | Image | Text)
+/* HISTORY SECTION - Wireframe Specification
+/* 3 Column Layout: Text | Image | Text
 /* ============================================ */
 .history {
     margin: var(--spacing-xl) 0;
@@ -183,6 +183,7 @@ main {
     margin-bottom: var(--spacing-lg);
     color: var(--primary-color);
     font-size: 1.8rem;
+    font-family: var(--heading-font);
 }
 
 .history-content {
@@ -208,7 +209,8 @@ main {
 }
 
 /* ============================================ */
-/* ADVENTURES SECTION - 5 Images with Figure/Figcaption
+/* ADVENTURES SECTION - Wireframe Specification
+/* 5 Images with Figure/Figcaption in Flex Layout
 /* ============================================ */
 .adventures {
     margin: var(--spacing-xl) 0;
@@ -222,6 +224,7 @@ main {
     margin-bottom: var(--spacing-lg);
     color: var(--primary-color);
     font-size: 1.8rem;
+    font-family: var(--heading-font);
 }
 
 .adventure-gallery {
@@ -259,24 +262,7 @@ main {
 }
 
 /* ============================================ */
-/* HEADING STYLES
-/* ============================================ */
-h1,
-h2,
-h3 {
-    font-family: var(--heading-font);
-}
-
-/* ============================================ */
-/* PARAGRAPH STYLES
-/* ============================================ */
-p {
-    padding: 0;
-    line-height: 1.6;
-}
-
-/* ============================================ */
-/* FOOTER STYLING
+/* FOOTER STYLING - Wireframe Specification
 /* ============================================ */
 footer {
     background-color: var(--primary-color);
@@ -322,7 +308,24 @@ footer nav.socialmedia img {
 }
 
 /* ============================================ */
+/* HEADING STYLES
+/* ============================================ */
+h1,
+h2,
+h3 {
+    font-family: var(--heading-font);
+}
+
+/* ============================================ */
+/* PARAGRAPH STYLES
+/* ============================================ */
+p {
+    line-height: 1.6;
+}
+
+/* ============================================ */
 /* RESPONSIVE DESIGN - Mobile Friendly
+/* Maintains wireframe integrity on all devices
 /* ============================================ */
 @media (max-width: 768px) {
     header {
@@ -336,24 +339,33 @@ footer nav.socialmedia img {
         flex-wrap: wrap;
     }
 
+    header img {
+        margin: 0 auto;
+    }
+
     .hero h1 {
         font-size: 1.2rem;
         top: 10px;
+        padding: var(--spacing-sm);
     }
 
     .hero article {
-        flex-direction: column;
-        text-align: center;
-        bottom: 20px;
+        bottom: 10px;
         left: 10px;
         right: 10px;
+        padding: var(--spacing-sm);
     }
 
-    /* On mobile, float doesn't work well - switch to block */
     .hero article img {
         float: none;
-        margin: 0 auto var(--spacing-md) auto;
+        margin: 0 auto var(--spacing-sm) auto;
         display: block;
+        width: 120px;
+    }
+
+    .hero article p {
+        font-size: 0.9rem;
+        text-align: center;
     }
 
     .history-content {
@@ -365,6 +377,7 @@ footer nav.socialmedia img {
     .history-content img {
         margin: 0 auto;
         width: 80%;
+        max-width: 260px;
     }
 
     .adventure-gallery {
@@ -374,7 +387,11 @@ footer nav.socialmedia img {
 
     .adventure-gallery figure {
         width: 100%;
-        max-width: 300px;
+        max-width: 280px;
+    }
+
+    .adventure-gallery figure img {
+        height: 160px;
     }
 
     footer {
@@ -385,4 +402,108 @@ footer nav.socialmedia img {
     footer nav.socialmedia {
         justify-content: center;
     }
+}
+
+/* Tablet Styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .history-content {
+        gap: var(--spacing-md);
+    }
+
+    .history-content img {
+        width: 200px;
+    }
+
+    .adventure-gallery figure {
+        min-width: 140px;
+    }
+
+    .adventure-gallery figure img {
+        height: 150px;
+    }
+}
+
+/* ============================================ */
+/* HERO SECTION - With Image Overlay
+/* ============================================ */
+
+/* Option 1: Dark Gradient Overlay (Recommended) */
+.hero {
+    position: relative;
+    margin-bottom: var(--spacing-xl);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Add overlay on the hero image */
+.hero > img:first-child {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+}
+
+/* Dark overlay for better text readability */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.6) 0%,
+            rgba(0, 0, 0, 0.4) 50%,
+            rgba(0, 0, 0, 0.7) 100%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.hero h1 {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(10, 47, 108, 0.85);
+    color: var(--text-light);
+    padding: var(--spacing-md);
+    font-size: 2rem;
+    font-family: var(--heading-font);
+    margin: 0;
+    z-index: 3;
+}
+
+.hero article {
+    position: absolute;
+    bottom: 40px;
+    left: 20px;
+    right: 20px;
+    background-color: rgba(10, 47, 108, 0.92);
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    color: var(--text-light);
+    z-index: 3;
+    overflow: auto;
+}
+
+.hero article img {
+    width: 150px;
+    height: auto;
+    border-radius: 8px;
+    border: 2px solid var(--secondary-color);
+    float: right;
+    margin-left: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+    position: relative;
+    z-index: 4;
+}
+
+.hero article p {
+    margin: 0;
+    color: var(--text-light);
+    line-height: 1.6;
 }
