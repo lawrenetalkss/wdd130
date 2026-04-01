@@ -1,5 +1,5 @@
 /* ============================================ */
-/* CSS Variables - Color Scheme (UPDATED)
+/* CSS Variables - Color Scheme (CLEANED & OPTIMIZED)
 /* ============================================ */
 :root {
     /* Primary Colors */
@@ -12,11 +12,11 @@
     --text-dark: #2c3e50;
     --text-light: #ffffff;
 
-    /* NEW - Added for better contrast */
-    --text-hover-dark: #1a1a1a;
-    /* Darker text for hover states */
-    --figcaption-dark: #1e6b5e;
-    /* Darker version of accent color for better contrast */
+    /* Hover & Interactive States */
+    --nav-hover-text: #1a2c3e;
+    /* Dark text for hover on light backgrounds */
+    --figcaption-contrast: #1a6b5e;
+    /* Darker teal for WCAG compliance */
 
     /* Fonts */
     --heading-font: 'Arial', 'Helvetica', sans-serif;
@@ -90,11 +90,11 @@ header nav a {
     font-weight: 500;
 }
 
-/* FIXED: Hover state now has proper contrast */
+/* FIXED: Using CSS variable for hover text color */
 header nav a:hover {
     background-color: var(--secondary-color);
-    color: #1a2c3e;
-    /* Darker color that meets contrast on #f4a261 background */
+    color: var(--nav-hover-text);
+    /* ✅ Using the variable now */
     /* Contrast ratio: #1a2c3e on #f4a261 = 7.2:1 ✅ PASS */
 }
 
@@ -278,20 +278,19 @@ main {
     transform: scale(1.05);
 }
 
-/* FIXED: Figcaption now has proper contrast */
+/* FIXED: Using CSS variable for figcaption color */
 .adventure-gallery figcaption {
     margin-top: var(--spacing-sm);
     font-weight: bold;
-    color: #1e6b5e;
-    /* Darker green that meets WCAG AA */
-    /* Contrast ratio: #1e6b5e on #f9f9f9 = 7.8:1 ✅ PASS */
+    color: var(--figcaption-contrast);
+    /* ✅ Using the variable now */
     font-size: 0.9rem;
+    transition: color 0.3s ease;
 }
 
-/* Optional: Add a subtle background for better readability on hover */
+/* Hover effect - returns to original accent color */
 .adventure-gallery figure:hover figcaption {
     color: var(--accent1-color);
-    transition: color 0.3s ease;
 }
 
 /* ============================================ */
@@ -470,7 +469,8 @@ nav a:focus {
 /* Ensure all interactive elements have proper hover/focus states */
 nav a:focus {
     background-color: var(--secondary-color);
-    color: #1a2c3e;
+    color: var(--nav-hover-text);
+    /* ✅ Using the variable */
 }
 
 /* Add smooth scrolling for better UX */
