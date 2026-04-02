@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML & CSS Quiz</title>
+    <link rel="stylesheet" href="styles/quiz.css">
+</head>
+
+<body>
+    <main>
+        <h1>HTML & CSS Knowledge Quiz</h1>
+        <form action="#" method="post">
+            <!-- Question 1: Text input (fill in the blank) -->
+            <div class="form-group">
+                <label for="q1">1. What does HTML stand for?</label>
+                <input type="text" id="q1" name="q1" placeholder="Enter your answer">
+            </div>
+
+            <!-- Question 2: Textarea (short answer) -->
+            <div class="form-group">
+                <label for="q2">2. Briefly explain the purpose of CSS in web development.</label>
+                <textarea id="q2" name="q2" rows="4"
+                  placeholder="Type your answer here..."></textarea>
+            </div>
+
+            <!-- Question 3: Select element (dropdown) -->
+            <div class="form-group">
+                <label for="q3">3. Which CSS property is used to change the background
+                    color?</label>
+                <select id="q3" name="q3">
+                    <option value="" selected disabled>Choose an answer...</option>
+                    <option value="color">color</option>
+                    <option value="bgcolor">bgcolor</option>
+                    <option value="background-color">background-color</option>
+                    <option value="background">background</option>
+                </select>
+            </div>
+
+            <!-- Question 4: Number input (integer answer) -->
+            <div class="form-group">
+                <label for="q4">4. How many heading levels are available in HTML (e.g., &lt;h1&gt;
+                    to &lt;h?&gt;)? Enter a number.</label>
+                <input type="number" id="q4" name="q4" placeholder="Enter a number">
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-group">
+                <button type="submit">Submit Quiz</button>
+            </div>
+        </form>
+    </main>
+</body>
+
+</html>
