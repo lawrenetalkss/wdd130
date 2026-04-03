@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-      content="Contact White Water Rafting Adventures. Get our address, phone, email, and send us a message.">
-    <meta name="author" content="Your Name">
-    <title>About Us | White Water Rafting Adventures</title>
+      content="Contact Rapid Riders - your premier white water rafting company. Call +1 999 999 9999, email info@whitewater.com, or send us a message to book your adventure today!">
+    <meta name="author" content="Adekunle David Lawrence">
+    <title>Contact Us | Rapid Riders - White Water Rafting Adventures</title>
     <link rel="stylesheet" href="styles/rafting.css">
 </head>
 
 <body>
     <header>
-        <img src="images/logo.jpeg" alt="White Water Rafting Logo">
+        <img src="images/rapids-rough.jpg" alt="Rapid Riders Logo">
         <nav>
             <a href="index.html">Home</a>
             <a href="about.html">About Us</a>
@@ -23,54 +23,69 @@
     </header>
 
     <main>
-        <!-- SECTION 1: Contact Information & Location -->
-        <section>
-            <h2>Contact Information & Location</h2>
+        <!-- Hero Section -->
+        <div class="hero">
+            <img src="images/hero-image.jpg" alt="White water rafting adventure">
+            <h1>Contact Rapid Riders</h1>
+            <article>
+                <img src="images/happy-client.jpg" alt="Happy rafter">
+                <p>Ready for your next adventure? Contact our team today to book your trip or ask
+                    questions about our rafting experiences!</p>
+            </article>
+        </div>
 
-            <!-- Contact Details -->
-            <div class="contact-details">
-                <div class="contact-detail-item">
+        <!-- Company Information Section -->
+        <section class="company-info">
+            <h2>White Water Rafting Company</h2>
+            <div class="company-details">
+                <div class="info-card">
                     <h3>📍 Address</h3>
-                    <p>123 River Run Road<br>Colorado Springs, CO 80903</p>
+                    <p>123 Main River Street<br>Kolob, California 90210</p>
                 </div>
-                <div class="contact-detail-item">
+                <div class="info-card">
                     <h3>📞 Phone</h3>
-                    <p>Main: (555) 123-4567<br>Reservations: (555) 123-4568</p>
+                    <p>+1 (999) 999-9999<br>+1 (999) 999-9998</p>
                 </div>
-                <div class="contact-detail-item">
+                <div class="info-card">
                     <h3>✉️ Email</h3>
-                    <p><a href="mailto:info@wwrafting.com">info@wwrafting.com</a><br>
-                        <a href="mailto:reservations@wwrafting.com">reservations@wwrafting.com</a>
+                    <p><a href="mailto:info@whitewater.com">info@whitewater.com</a><br>
+                        <a href="mailto:reservations@whitewater.com">reservations@whitewater.com</a>
                     </p>
                 </div>
             </div>
+        </section>
 
-            <!-- Google Map -->
+        <!-- Google Map Section (REQUIRED) -->
+        <section class="map-section">
+            <h2>Find Our Location</h2>
             <div class="map-container">
-                <iframe <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d126852.35574433705!2d3.3521664!3d6.504448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sng!4v1775136496554!5m2!1sen!2sng"
-                  width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126852.35574433705!2d3.3521664!3d6.504448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sng!4v1775136496554!5m2!1sen!2sng"
+                  width="100%" height="400" allowfullscreen="" loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
             </div>
+        </section>
 
-            <!-- Team Section -->
-            <h2>Meet Our Team</h2>
-            <div class="employee-grid">
-                <figure class="employee-card">
+        <!-- Employee Profiles Section with DETAILS -->
+        <section class="employee-profiles">
+            <h2>We Are Here to Serve You</h2>
+            <div class="profiles-grid">
+                <figure class="profile-card">
                     <img src="images/employee1.jpeg" alt="Sarah Johnson - Lead Guide">
                     <figcaption>
                         <strong>Sarah Johnson</strong><br>
                         Lead Guide & Safety Coordinator
                     </figcaption>
                 </figure>
-                <figure class="employee-card">
+                <figure class="profile-card">
                     <img src="images/employee2.jpeg" alt="Mike Rodriguez - Trip Planner">
                     <figcaption>
                         <strong>Mike Rodriguez</strong><br>
                         Senior Trip Planner
                     </figcaption>
                 </figure>
-                <figure class="employee-card">
+                <figure class="profile-card">
                     <img src="images/employee3.jpeg" alt="Emily Chen - Customer Experience">
                     <figcaption>
                         <strong>Emily Chen</strong><br>
@@ -80,71 +95,62 @@
             </div>
         </section>
 
-        <!-- SECTION 2: Contact Form -->
-        <section>
+        <!-- Contact Form Section -->
+        <section class="contact-form-section">
             <h2>Send Us a Message</h2>
             <form action="#" method="post" class="contact-form">
-                <div class="form-group">
-                    <label for="name">Your Name *</label>
-                    <input type="text" id="name" name="name" required placeholder="Full name">
+                <div class="form-row">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Placeholder">
                 </div>
 
-                <div class="form-group">
-                    <label for="email">Email Address *</label>
-                    <input type="email" id="email" name="email" required
-                      placeholder="you@example.com">
+                <div class="form-row">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Placeholder">
                 </div>
 
-                <div class="form-group">
-                    <fieldset>
-                        <legend>Purpose of Message *</legend>
-                        <div class="radio-group">
-                            <label>
-                                <input type="radio" name="purpose" value="general" required> General
-                                Inquiry
-                            </label>
-                            <label>
-                                <input type="radio" name="purpose" value="reservation"> Reservation
-                                Question
-                            </label>
-                            <label>
-                                <input type="radio" name="purpose" value="suggestion"> Website
-                                Suggestion
-                            </label>
-                        </div>
-                    </fieldset>
+                <div class="form-row">
+                    <label>Message Purpose</label>
+                    <div class="radio-options">
+                        <label><input type="radio" name="purpose" value="general"> General
+                            Inquiry</label>
+                        <label><input type="radio" name="purpose" value="reservation"> Reservation
+                            Question</label>
+                        <label><input type="radio" name="purpose" value="suggestion"> Website
+                            Suggestion</label>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="message">Your Message *</label>
-                    <textarea id="message" name="message" rows="5" required
-                      placeholder="Please share your questions or comments..."></textarea>
+                <div class="form-row">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5"
+                      placeholder="Type here"></textarea>
                 </div>
 
-                <div class="form-group checkbox-group">
+                <div class="form-row checkbox-row">
                     <label>
-                        <input type="checkbox" name="newsletter" value="subscribe"> Please subscribe
-                        me to the monthly newsletter
+                        <input type="checkbox" name="newsletter"> Please Subscribe me to the monthly
+                        newsletter
                     </label>
                 </div>
 
-                <div class="form-group">
-                    <button type="submit" class="submit-btn">Send Message</button>
+                <div class="form-row">
+                    <button type="submit" class="submit-btn">Get in Touch!</button>
                 </div>
             </form>
         </section>
     </main>
 
     <footer>
-        <p>© 2026 White Water Rafting Adventures | Created by Your Name</p>
+        <p>&copy; 2026 Rapid Riders | Created by Adekunle David Lawrence</p>
         <nav class="socialmedia">
-            <a href="https://facebook.com">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
                 <img src="images/facebook-icon.jpg" alt="Facebook">
             </a>
-            <a href="https://twitter.com">
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
                 <img src="images/twitter-icon.jpg" alt="Twitter">
             </a>
-            <a href="https://instagram.com">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
                 <img src="images/instagram-icon.jpg" alt="Instagram">
             </a>
         </nav>
