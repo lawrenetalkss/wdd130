@@ -2,6 +2,7 @@
 /* COMPLETE CSS - Rapid Riders Rafting Company
 /* All variables are used - Zero unused variables
 /* Validated & Optimized for W3C CSS Validator
+/* FIXED: WCAG AA Color Contrast Violations
 /* ============================================ */
 
 /* ============================================ */
@@ -11,14 +12,14 @@
     /* Primary Colors */
     --primary-color: #0a2f6c;
     --secondary-color: #f4a261;
-    --accent1-color: #2a9d8f;
+    --accent1-color: #1a6b5e;  /* ✅ FIXED: was #2a9d8f (3.32:1) - now passes WCAG AA (6.35:1 with white) */
     --accent2-color: #e76f51;
 
     /* Text Colors */
     --text-dark: #2c3e50;
     --text-light: #ffffff;
     --nav-hover-text: #1a2c3e;
-    --figcaption-contrast: #1a6b5e;  /* ✅ USED in .profile-card figcaption */
+    --figcaption-contrast: #1a6b5e;  /* ✅ FIXED: matches darker accent color */
 
     /* Background Colors */
     --bg-light: #f5f5f5;
@@ -38,7 +39,7 @@
     /* Border Radius */
     --radius-sm: 4px;
     --radius-md: 8px;
-    --radius-lg: 12px;  /* ✅ USED for .feature-card and .trip-card */
+    --radius-lg: 12px;
 }
 
 /* ============================================ */
@@ -81,6 +82,7 @@ html {
 
 /* ============================================ */
 /* HEADER & NAVIGATION
+/* ✅ FIXED: All header text now uses light colors for contrast
 /* ============================================ */
 header {
     display: grid;
@@ -92,6 +94,19 @@ header {
     width: 90%;
     margin: var(--spacing-md) auto;
     border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+/* ✅ FIXED: Ensure ALL text inside header is light for contrast */
+header,
+header * {
+    color: var(--text-light);
+}
+
+/* Exception: Keep hover states working correctly */
+header nav a:hover,
+header nav a:focus {
+    background-color: var(--secondary-color);
+    color: var(--nav-hover-text);
 }
 
 header img {
@@ -107,20 +122,11 @@ header nav {
 
 header nav a {
     display: inline-block;
-    color: var(--text-light);
     text-decoration: none;
     padding: var(--spacing-sm) var(--spacing-md);
     border-radius: var(--radius-sm);
     transition: all 0.3s ease;
     font-weight: 500;
-}
-
-header nav a:hover,
-header nav a:focus {
-    background-color: var(--secondary-color);
-    color: var(--nav-hover-text);
-    outline: 3px solid var(--secondary-color);
-    outline-offset: 2px;
 }
 
 /* ============================================ */
@@ -272,9 +278,10 @@ main {
 .newsletter-form input:focus {
     border-color: var(--accent1-color);
     outline: none;
-    box-shadow: 0 0 5px rgba(42, 157, 143, 0.3);
+    box-shadow: 0 0 5px rgba(26, 107, 94, 0.3);
 }
 
+/* ✅ FIXED: submit-btn now uses darker accent color + white text passes WCAG AA */
 .newsletter-form .submit-btn {
     background-color: var(--accent1-color);
     color: var(--text-light);
@@ -318,7 +325,7 @@ main {
     text-align: center;
     padding: var(--spacing-md);
     background-color: var(--bg-card);
-    border-radius: var(--radius-lg);  /* ✅ USING --radius-lg */
+    border-radius: var(--radius-lg);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
 }
@@ -530,13 +537,16 @@ main {
     color: var(--text-dark);
 }
 
+/* ✅ FIXED: Links now use darker teal that passes WCAG AA */
 .info-card a {
     color: var(--accent1-color);
-    text-decoration: none;
+    text-decoration: underline;
+    text-underline-offset: 2px;
 }
 
 .info-card a:hover {
-    text-decoration: underline;
+    text-decoration: none;
+    color: var(--accent2-color);
 }
 
 /* ============================================ */
@@ -620,7 +630,7 @@ main {
 .profile-card figcaption {
     margin-top: var(--spacing-sm);
     font-size: 0.9rem;
-    color: var(--figcaption-contrast);  /* ✅ USING --figcaption-contrast */
+    color: var(--figcaption-contrast);
 }
 
 .profile-card strong {
@@ -677,7 +687,7 @@ main {
 .form-row textarea:focus {
     border-color: var(--accent1-color);
     outline: none;
-    box-shadow: 0 0 5px rgba(42, 157, 143, 0.3);
+    box-shadow: 0 0 5px rgba(26, 107, 94, 0.3);
 }
 
 .radio-options {
@@ -707,6 +717,7 @@ main {
     gap: var(--spacing-sm);
 }
 
+/* ✅ FIXED: submit-btn now uses darker accent color + white text passes WCAG AA */
 .submit-btn {
     background-color: var(--accent1-color);
     color: var(--text-light);
@@ -762,7 +773,7 @@ main {
 
 .trip-card {
     background-color: var(--bg-card);
-    border-radius: var(--radius-lg);  /* ✅ USING --radius-lg */
+    border-radius: var(--radius-lg);
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
