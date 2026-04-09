@@ -5,6 +5,7 @@
 /* FIXED: WCAG AA Color Contrast Violations
 /* FIXED: Contact page layout - Map left, Form right
 /* FIXED: Map height matches form height (equal columns)
+/* FIXED: Removed inline style - border:0 now in CSS
 /* ============================================ */
 
 /* ============================================ */
@@ -575,8 +576,10 @@ main {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* ✅ FIXED: Removes default iframe border - replaces inline style="border:0;" */
 .map-container iframe {
     width: 100%;
+    border: 0;
 }
 
 /* ============================================ */
@@ -591,7 +594,7 @@ main {
     grid-template-columns: 1fr 1fr;
     gap: var(--spacing-xl);
     margin-bottom: var(--spacing-xl);
-    align-items: stretch;  /* ✅ CHANGED: from 'start' to 'stretch' - forces equal height */
+    align-items: stretch;  /* ✅ Forces equal height columns */
 }
 
 /* Map section adjustments - LEFT COLUMN */
@@ -617,6 +620,7 @@ main {
     height: 100%;  /* ✅ Fill the container completely */
     flex: 1;  /* ✅ Take all available space */
     min-height: 400px;  /* ✅ Minimum height for usability */
+    border: 0;  /* ✅ Removes default iframe border */
 }
 
 /* Form section adjustments - RIGHT COLUMN */
