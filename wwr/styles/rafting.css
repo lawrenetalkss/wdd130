@@ -3,6 +3,8 @@
 /* All variables are used - Zero unused variables
 /* Validated & Optimized for W3C CSS Validator
 /* FIXED: WCAG AA Color Contrast Violations
+/* FIXED: Contact page layout - Map left, Form right
+/* FIXED: Map height matches form height (equal columns)
 /* ============================================ */
 
 /* ============================================ */
@@ -554,9 +556,7 @@ main {
 /* ============================================ */
 .map-section {
     text-align: center;
-    padding: var(--spacing-xl);
     background-color: var(--bg-section);
-    margin-bottom: var(--spacing-xl);
     border-radius: var(--radius-md);
 }
 
@@ -577,6 +577,67 @@ main {
 
 .map-container iframe {
     width: 100%;
+}
+
+/* ============================================ */
+/* CONTACT PAGE LAYOUT - Map & Form Side by Side
+/* ✅ FIXED: Now map on LEFT, form on RIGHT
+/* ✅ FIXED: Map height now matches form height exactly
+/* ============================================ */
+
+/* Container that wraps both map and form */
+.contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+    align-items: stretch;  /* ✅ CHANGED: from 'start' to 'stretch' - forces equal height */
+}
+
+/* Map section adjustments - LEFT COLUMN */
+.map-section {
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-lg);
+    height: 100%;  /* ✅ Take full height of grid cell */
+}
+
+.map-container {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    flex: 1;  /* ✅ Take all available space */
+    display: flex;
+    flex-direction: column;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;  /* ✅ Fill the container completely */
+    flex: 1;  /* ✅ Take all available space */
+    min-height: 400px;  /* ✅ Minimum height for usability */
+}
+
+/* Form section adjustments - RIGHT COLUMN */
+.contact-form-section {
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-xl);
+    height: 100%;  /* ✅ Take full height of grid cell */
+}
+
+/* Make form fill the column */
+.contact-form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Push submit button to bottom when form is short */
+.contact-form .form-row:last-child {
+    margin-top: auto;
 }
 
 /* ============================================ */
@@ -639,24 +700,8 @@ main {
 }
 
 /* ============================================ */
-/* CONTACT FORM
+/* CONTACT FORM (Internal styles)
 /* ============================================ */
-.contact-form-section {
-    max-width: 600px;
-    margin: 0 auto var(--spacing-xl) auto;
-    padding: var(--spacing-xl);
-    background-color: var(--bg-section);
-    border-radius: var(--radius-md);
-}
-
-.contact-form-section h2 {
-    text-align: center;
-    color: var(--primary-color);
-    font-size: 1.8rem;
-    margin-bottom: var(--spacing-lg);
-    font-family: var(--heading-font);
-}
-
 .contact-form {
     display: flex;
     flex-direction: column;
@@ -1087,6 +1132,28 @@ footer nav.socialmedia img {
         padding: 8px 10px;
         font-size: 0.85rem;
     }
+
+    /* ✅ FIXED: Stack map and form vertically on mobile */
+    .contact-layout {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .map-container {
+        min-height: 300px;
+    }
+
+    .map-container iframe {
+        min-height: 300px;
+    }
+
+    .map-section {
+        padding: var(--spacing-md);
+    }
+
+    .contact-form-section {
+        padding: var(--spacing-lg);
+    }
 }
 
 /* Tablet (769px to 1024px) */
@@ -1113,6 +1180,19 @@ footer nav.socialmedia img {
 
     .trips-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Tablet adjustments for contact layout */
+    .contact-layout {
+        gap: var(--spacing-md);
+    }
+
+    .map-container {
+        min-height: 400px;
+    }
+
+    .map-container iframe {
+        min-height: 400px;
     }
 }
 

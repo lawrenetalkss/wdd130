@@ -7,7 +7,7 @@
     <meta name="description"
         content="Contact Rapid Riders for white water rafting adventures. Call +1 999 999 9999 or email info@whitewater.com to book your trip today!">
     <meta name="author" content="Adekunle David Lawrence">
-    <title>About Us | Rapid Riders - White Water Rafting Adventures</title>
+    <title>Contact Us | Rapid Riders - White Water Rafting Adventures</title>
     <link rel="stylesheet" href="styles/rafting.css">
 </head>
 
@@ -67,13 +67,74 @@
             </div>
         </div>
 
-        <!-- Google Map -->
-        <div class="map-section">
-            <h2>Find Our Location</h2>
-            <div class="map-container">
-                <iframe
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d126852.35574433705!2d3.3521664!3d6.504448!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sng!4v1775743360020!5m2!1sen!2sng" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </iframe>
+        <!-- ✅ NEW: Contact Layout - Map on LEFT, Form on RIGHT -->
+        <div class="contact-layout">
+            <!-- Google Map - LEFT COLUMN -->
+            <div class="map-section">
+                <h2>Find Our Location</h2>
+                <div class="map-container">
+                    <!-- ✅ FIXED: Removed fixed width/height attributes - let CSS control sizing -->
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d126852.35574433705!2d3.3521664!3d6.504448!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sng!4v1775743360020!5m2!1sen!2sng" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Rapid Riders Location Map">
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- Contact Form - RIGHT COLUMN -->
+            <div class="contact-form-section">
+                <h2>Send Us a Message</h2>
+                <form action="#" method="post" class="contact-form">
+                    <!-- Text input -->
+                    <div class="form-row">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your full name">
+                    </div>
+
+                    <!-- Email input -->
+                    <div class="form-row">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="your@email.com">
+                    </div>
+
+                    <!-- Radio buttons group -->
+                    <div class="form-row">
+                        <label>Message Purpose</label>
+                        <div class="radio-options">
+                            <label for="purpose_general">
+                                <input type="radio" id="purpose_general" name="purpose" value="general"> General Inquiry
+                            </label>
+                            <label for="purpose_reservation">
+                                <input type="radio" id="purpose_reservation" name="purpose" value="reservation"> Reservation Question
+                            </label>
+                            <label for="purpose_suggestion">
+                                <input type="radio" id="purpose_suggestion" name="purpose" value="suggestion"> Website Suggestion
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Textarea -->
+                    <div class="form-row">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Tell us how we can help..."></textarea>
+                    </div>
+
+                    <!-- Checkbox -->
+                    <div class="form-row checkbox-row">
+                        <label for="newsletter">
+                            <input type="checkbox" id="newsletter" name="newsletter"> Please subscribe me to the monthly newsletter
+                        </label>
+                    </div>
+
+                    <!-- Submit button -->
+                    <div class="form-row">
+                        <button type="submit" class="submit-btn">Get in Touch!</button>
+                    </div>
+                </form>
             </div>
         </div>
 
@@ -85,89 +146,34 @@
                 we have trips ranging from gentle family floats to extreme Class V challenges. Book your adventure today
                 and discover why thousands of customers rate us 5-stars for excitement, professionalism, and pure fun
                 on the water!</p>
-
-            <!-- Employee Profiles -->
-            <div class="employee-profiles">
-                <h3>Meet Our Expert Team</h3>
-                <div class="profiles-grid">
-                    <figure class="profile-card">
-                        <img src="images/employee1.jpeg" alt="Sarah Johnson - Lead Guide">
-                        <figcaption>
-                            <strong>Sarah Johnson</strong><br>
-                            Lead Guide & Safety Coordinator
-                        </figcaption>
-                    </figure>
-                    <figure class="profile-card">
-                        <img src="images/employee2.jpeg" alt="Mike Rodriguez - Trip Planner">
-                        <figcaption>
-                            <strong>Mike Rodriguez</strong><br>
-                            Senior Trip Planner
-                        </figcaption>
-                    </figure>
-                    <figure class="profile-card">
-                        <img src="images/employee3.jpeg" alt="Emily Chen - Customer Experience">
-                        <figcaption>
-                            <strong>Emily Chen</strong><br>
-                            Customer Experience Manager
-                        </figcaption>
-                    </figure>
-                </div>
-            </div>
         </section>
 
-        <!-- ✅ Contact Form - NOW FULLY COMPLIANT with all id attributes -->
-        <div class="contact-form-section">
-            <h2>Send Us a Message</h2>
-            <form action="#" method="post" class="contact-form">
-                <!-- Text input (✅ has id) -->
-                <div class="form-row">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" placeholder="Placeholder">
-                </div>
-
-                <!-- Email input (✅ has id) -->
-                <div class="form-row">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="Placeholder">
-                </div>
-
-                <!-- Radio buttons group - ✅ EACH has unique id and matching for attribute -->
-                <div class="form-row">
-                    <label>Message Purpose</label>
-                    <div class="radio-options">
-                        <!-- Radio 1: ✅ id="purpose_general" -->
-                        <label for="purpose_general">
-                            <input type="radio" id="purpose_general" name="purpose" value="general"> General Inquiry
-                        </label>
-                        <!-- Radio 2: ✅ id="purpose_reservation" -->
-                        <label for="purpose_reservation">
-                            <input type="radio" id="purpose_reservation" name="purpose" value="reservation"> Reservation Question
-                        </label>
-                        <!-- Radio 3: ✅ id="purpose_suggestion" -->
-                        <label for="purpose_suggestion">
-                            <input type="radio" id="purpose_suggestion" name="purpose" value="suggestion"> Website Suggestion
-                        </label>
-                    </div>
-                </div>
-
-                <!-- Textarea (✅ has id) -->
-                <div class="form-row">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="5" placeholder="Type here"></textarea>
-                </div>
-
-                <!-- Checkbox (✅ has id) -->
-                <div class="form-row checkbox-row">
-                    <label for="newsletter">
-                        <input type="checkbox" id="newsletter" name="newsletter"> Please Subscribe me to the monthly newsletter
-                    </label>
-                </div>
-
-                <!-- Submit button (✅ meaningful text - not just "Submit") -->
-                <div class="form-row">
-                    <button type="submit" class="submit-btn">Get in Touch!</button>
-                </div>
-            </form>
+        <!-- Employee Profiles -->
+        <div class="employee-profiles">
+            <h3>Meet Our Expert Team</h3>
+            <div class="profiles-grid">
+                <figure class="profile-card">
+                    <img src="images/employee1.jpeg" alt="Sarah Johnson - Lead Guide">
+                    <figcaption>
+                        <strong>Sarah Johnson</strong><br>
+                        Lead Guide & Safety Coordinator
+                    </figcaption>
+                </figure>
+                <figure class="profile-card">
+                    <img src="images/employee2.jpeg" alt="Mike Rodriguez - Trip Planner">
+                    <figcaption>
+                        <strong>Mike Rodriguez</strong><br>
+                        Senior Trip Planner
+                    </figcaption>
+                </figure>
+                <figure class="profile-card">
+                    <img src="images/employee3.jpeg" alt="Emily Chen - Customer Experience">
+                    <figcaption>
+                        <strong>Emily Chen</strong><br>
+                        Customer Experience Manager
+                    </figcaption>
+                </figure>
+            </div>
         </div>
     </main>
 
