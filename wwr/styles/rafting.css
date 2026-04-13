@@ -15,14 +15,14 @@
     /* Primary Colors */
     --primary-color: #0a2f6c;
     --secondary-color: #f4a261;
-    --accent1-color: #1a6b5e;  /* ✅ FIXED: was #2a9d8f (3.32:1) - now passes WCAG AA (6.35:1 with white) */
+    --accent1-color: #1a6b5e;
     --accent2-color: #e76f51;
 
     /* Text Colors */
     --text-dark: #2c3e50;
     --text-light: #ffffff;
     --nav-hover-text: #1a2c3e;
-    --figcaption-contrast: #1a6b5e;  /* ✅ FIXED: matches darker accent color */
+    --figcaption-contrast: #1a6b5e;
 
     /* Background Colors */
     --bg-light: #f5f5f5;
@@ -85,7 +85,6 @@ html {
 
 /* ============================================ */
 /* HEADER & NAVIGATION
-/* ✅ FIXED: All header text now uses light colors for contrast
 /* ============================================ */
 header {
     display: grid;
@@ -99,13 +98,11 @@ header {
     border-radius: var(--radius-md) var(--radius-md) 0 0;
 }
 
-/* ✅ FIXED: Ensure ALL text inside header is light for contrast */
 header,
 header * {
     color: var(--text-light);
 }
 
-/* Exception: Keep hover states working correctly */
 header nav a:hover,
 header nav a:focus {
     background-color: var(--secondary-color);
@@ -145,8 +142,88 @@ main {
 }
 
 /* ============================================ */
-/* HOME PAGE HERO SECTION
+/* HERO SECTION (Unified - works for all pages)
 /* ============================================ */
+.hero {
+    position: relative;
+    margin-bottom: var(--spacing-xl);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.hero > img:first-child {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: cover;
+    display: block;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.5) 0%,
+            rgba(0, 0, 0, 0.3) 50%,
+            rgba(0, 0, 0, 0.6) 100%);
+    pointer-events: none;
+}
+
+.hero h1 {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    background-color: var(--primary-color);
+    opacity: 0.85;
+    color: var(--text-light);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-sm);
+    font-size: 1.8rem;
+    margin: 0 auto;
+    width: 90%;
+    max-width: 800px;
+    z-index: 2;
+    font-family: var(--heading-font);
+}
+
+.hero article {
+    position: absolute;
+    bottom: 40px;
+    left: 20px;
+    right: 20px;
+    background-color: var(--primary-color);
+    opacity: 0.92;
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    color: var(--text-light);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    max-width: 500px;
+}
+
+.hero article img {
+    width: 120px;
+    border-radius: var(--radius-md);
+    border: 2px solid var(--secondary-color);
+    float: right;
+    margin-left: var(--spacing-md);
+}
+
+.hero article p {
+    margin: 0;
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+/* Home page specific hero variation */
 .home-hero {
     position: relative;
     margin-bottom: var(--spacing-xl);
@@ -284,7 +361,6 @@ main {
     box-shadow: 0 0 5px rgba(26, 107, 94, 0.3);
 }
 
-/* ✅ FIXED: submit-btn now uses darker accent color + white text passes WCAG AA */
 .newsletter-form .submit-btn {
     background-color: var(--accent1-color);
     color: var(--text-light);
@@ -387,79 +463,10 @@ main {
 }
 
 /* ============================================ */
-/* HERO SECTION (About & Contact Pages)
+/* HISTORY SECTION (About page - first section)
 /* ============================================ */
-.hero {
-    position: relative;
-    margin-bottom: var(--spacing-xl);
-    border-radius: var(--radius-md);
-    overflow: hidden;
-}
-
-.hero > img:first-child {
-    width: 100%;
-    height: auto;
-    max-height: 500px;
-    object-fit: cover;
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to bottom,
-            rgba(0, 0, 0, 0.6) 0%,
-            rgba(0, 0, 0, 0.4) 50%,
-            rgba(0, 0, 0, 0.7) 100%);
-    pointer-events: none;
-}
-
-.hero h1 {
-    position: absolute;
-    top: 20px;
-    left: 0;
-    width: 100%;
-    text-align: center;
-    background-color: var(--primary-color);
-    opacity: 0.85;
-    color: var(--text-light);
-    padding: var(--spacing-md);
-    font-size: 2rem;
-    margin: 0;
-    z-index: 2;
-    font-family: var(--heading-font);
-}
-
-.hero article {
-    position: absolute;
-    bottom: 40px;
-    left: 20px;
-    right: 20px;
-    background-color: var(--primary-color);
-    opacity: 0.92;
-    padding: var(--spacing-md);
-    border-radius: var(--radius-md);
-    color: var(--text-light);
-    overflow: auto;
-    z-index: 2;
-}
-
-.hero article img {
-    width: 150px;
-    border-radius: var(--radius-md);
-    border: 2px solid var(--secondary-color);
-    float: right;
-    margin-left: var(--spacing-md);
-    margin-bottom: var(--spacing-sm);
-}
-
-/* ============================================ */
-/* HISTORY SECTION
-/* ============================================ */
-.history-section {
+.history-section,
+main section:first-of-type {
     margin: var(--spacing-xl) 0;
     padding: var(--spacing-lg);
     background-color: var(--bg-section);
@@ -467,7 +474,8 @@ main {
     border-left: 4px solid var(--accent2-color);
 }
 
-.history-section h2 {
+.history-section h2,
+main section:first-of-type h2 {
     text-align: center;
     margin-bottom: var(--spacing-lg);
     color: var(--primary-color);
@@ -475,22 +483,58 @@ main {
     font-family: var(--heading-font);
 }
 
+.history-section p,
+main section:first-of-type p {
+    line-height: 1.6;
+    color: var(--text-dark);
+}
+
 /* ============================================ */
-/* ADVENTURE SECTION
+/* ADVENTURE SECTION (About page - second section)
 /* ============================================ */
-.adventure-section {
+.adventure-section,
+main section:last-of-type {
     margin: var(--spacing-xl) 0;
     padding: var(--spacing-lg);
     background-color: var(--bg-section);
     border-radius: var(--radius-md);
 }
 
-.adventure-section h2 {
+.adventure-section h2,
+main section:last-of-type h2 {
     text-align: center;
     margin-bottom: var(--spacing-lg);
     color: var(--primary-color);
     font-size: 1.8rem;
     font-family: var(--heading-font);
+}
+
+.adventure-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--spacing-md);
+}
+
+.adventure-gallery figure {
+    flex: 1;
+    min-width: 150px;
+    margin: 0;
+    text-align: center;
+}
+
+.adventure-gallery img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+}
+
+.adventure-gallery figcaption {
+    margin-top: var(--spacing-sm);
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--accent1-color);
 }
 
 /* ============================================ */
@@ -540,7 +584,6 @@ main {
     color: var(--text-dark);
 }
 
-/* ✅ FIXED: Links now use darker teal that passes WCAG AA */
 .info-card a {
     color: var(--accent1-color);
     text-decoration: underline;
@@ -553,12 +596,25 @@ main {
 }
 
 /* ============================================ */
-/* MAP SECTION (Contact Page)
+/* CONTACT PAGE LAYOUT - Map & Form Side by Side
 /* ============================================ */
+.contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+    align-items: stretch;
+}
+
 .map-section {
     text-align: center;
     background-color: var(--bg-section);
     border-radius: var(--radius-md);
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-lg);
+    height: 100%;
 }
 
 .map-section h2 {
@@ -574,74 +630,112 @@ main {
     border-radius: var(--radius-md);
     overflow: hidden;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* ✅ FIXED: Removes default iframe border - replaces inline style="border:0;" */
-.map-container iframe {
-    width: 100%;
-    border: 0;
-}
-
-/* ============================================ */
-/* CONTACT PAGE LAYOUT - Map & Form Side by Side
-/* ✅ FIXED: Now map on LEFT, form on RIGHT
-/* ✅ FIXED: Map height now matches form height exactly
-/* ============================================ */
-
-/* Container that wraps both map and form */
-.contact-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-xl);
-    margin-bottom: var(--spacing-xl);
-    align-items: stretch;  /* ✅ Forces equal height columns */
-}
-
-/* Map section adjustments - LEFT COLUMN */
-.map-section {
-    margin-bottom: 0;
-    display: flex;
-    flex-direction: column;
-    padding: var(--spacing-lg);
-    height: 100%;  /* ✅ Take full height of grid cell */
-}
-
-.map-container {
-    border-radius: var(--radius-md);
-    overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    flex: 1;  /* ✅ Take all available space */
-    display: flex;
-    flex-direction: column;
-}
-
-.map-container iframe {
-    width: 100%;
-    height: 100%;  /* ✅ Fill the container completely */
-    flex: 1;  /* ✅ Take all available space */
-    min-height: 400px;  /* ✅ Minimum height for usability */
-    border: 0;  /* ✅ Removes default iframe border */
-}
-
-/* Form section adjustments - RIGHT COLUMN */
-.contact-form-section {
-    margin-bottom: 0;
-    display: flex;
-    flex-direction: column;
-    padding: var(--spacing-xl);
-    height: 100%;  /* ✅ Take full height of grid cell */
-}
-
-/* Make form fill the column */
-.contact-form {
     flex: 1;
     display: flex;
     flex-direction: column;
 }
 
-/* Push submit button to bottom when form is short */
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    flex: 1;
+    min-height: 400px;
+    border: 0;
+}
+
+.contact-form-section {
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-xl);
+    height: 100%;
+}
+
+/* ============================================ */
+/* CONTACT FORM
+/* ============================================ */
+.contact-form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
 .contact-form .form-row:last-child {
     margin-top: auto;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.form-row label {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.form-row input:not([type="radio"]):not([type="checkbox"]),
+.form-row textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    font-family: var(--body-font);
+}
+
+.form-row input:focus,
+.form-row textarea:focus {
+    border-color: var(--accent1-color);
+    outline: none;
+    box-shadow: 0 0 5px rgba(26, 107, 94, 0.3);
+}
+
+.radio-options {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.radio-options label {
+    font-weight: normal;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.checkbox-row {
+    flex-direction: row;
+    align-items: center;
+}
+
+.checkbox-row label {
+    font-weight: normal;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.submit-btn {
+    background-color: var(--accent1-color);
+    color: var(--text-light);
+    border: none;
+    padding: 14px 24px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+    max-width: 180px;
+    margin: 0 auto;
+}
+
+.submit-btn:hover {
+    background-color: var(--accent2-color);
 }
 
 /* ============================================ */
@@ -701,89 +795,6 @@ main {
 .profile-card strong {
     color: var(--primary-color);
     font-size: 1rem;
-}
-
-/* ============================================ */
-/* CONTACT FORM (Internal styles)
-/* ============================================ */
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-lg);
-}
-
-.form-row {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-sm);
-}
-
-.form-row label {
-    font-weight: bold;
-    color: var(--primary-color);
-}
-
-.form-row input:not([type="radio"]):not([type="checkbox"]),
-.form-row textarea {
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: var(--radius-sm);
-    font-size: 1rem;
-    font-family: var(--body-font);
-}
-
-.form-row input:focus,
-.form-row textarea:focus {
-    border-color: var(--accent1-color);
-    outline: none;
-    box-shadow: 0 0 5px rgba(26, 107, 94, 0.3);
-}
-
-.radio-options {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-sm);
-}
-
-.radio-options label {
-    font-weight: normal;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-sm);
-}
-
-.checkbox-row {
-    flex-direction: row;
-    align-items: center;
-}
-
-.checkbox-row label {
-    font-weight: normal;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-sm);
-}
-
-/* ✅ FIXED: submit-btn now uses darker accent color + white text passes WCAG AA */
-.submit-btn {
-    background-color: var(--accent1-color);
-    color: var(--text-light);
-    border: none;
-    padding: 14px 24px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    border-radius: var(--radius-sm);
-    cursor: pointer;
-    transition: background-color 0.3s;
-    width: 100%;
-    max-width: 180px;
-    margin: 0 auto;
-}
-
-.submit-btn:hover {
-    background-color: var(--accent2-color);
 }
 
 /* ============================================ */
@@ -1055,13 +1066,15 @@ footer nav.socialmedia img {
         bottom: 10px;
         left: 10px;
         right: 10px;
-        padding: var(--spacing-sm);
+        flex-direction: column;
+        text-align: center;
+        max-width: 90%;
     }
 
     .hero article img {
         float: none;
         margin: 0 auto var(--spacing-sm);
-        width: 120px;
+        width: 80px;
     }
 
     .hero article p {
@@ -1137,7 +1150,6 @@ footer nav.socialmedia img {
         font-size: 0.85rem;
     }
 
-    /* ✅ FIXED: Stack map and form vertically on mobile */
     .contact-layout {
         grid-template-columns: 1fr;
         gap: var(--spacing-md);
@@ -1157,6 +1169,16 @@ footer nav.socialmedia img {
 
     .contact-form-section {
         padding: var(--spacing-lg);
+    }
+
+    .adventure-gallery {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .adventure-gallery figure {
+        width: 100%;
+        max-width: 250px;
     }
 }
 
@@ -1186,7 +1208,6 @@ footer nav.socialmedia img {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    /* Tablet adjustments for contact layout */
     .contact-layout {
         gap: var(--spacing-md);
     }
