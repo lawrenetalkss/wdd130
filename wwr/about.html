@@ -1,18 +1,24 @@
+<!-- File: about.html -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Learn about Rapid Riders, the premier white water rafting company offering thrilling adventures since 2010. Discover our history and passion for the river.">
+    <meta name="description"
+      content="Learn about Rapid Riders, your premier white water rafting company. Discover our history, mission, and thrilling adventures on wild rivers.">
     <meta name="author" content="Adekunle David Lawrence">
-    <title>Rapid Riders | About Us - White Water Rafting Company</title>
+    <title>Rapid Riders | About Us - White Water Rafting Adventures</title>
     <link rel="stylesheet" href="styles/rafting.css">
 </head>
 
 <body>
     <header>
-        <img src="images/rapids-rough.jpg" alt="Rapid Riders Logo">
+        <!-- Using ASIDE element to wrap the logo/image on the left side as requested -->
+        <aside aria-label="Company Logo">
+            <img src="images/rapids-rough.jpg"
+              alt="Rapid Riders Logo - White water rafting company emblem">
+        </aside>
         <nav>
             <a href="index.html">Home</a>
             <a href="about.html">About Us</a>
@@ -22,31 +28,73 @@
     </header>
 
     <main>
-        <!-- ✅ CORRECT: Using DIV not SECTION for hero -->
         <div class="hero">
-            <!-- ✅ Required img inside hero -->
-            <img src="images/hero-image.jpg" alt="White water rafting adventure">
-            
-            <!-- ✅ Required h1 with ONLY company name -->
-            <h1>Rapid Riders</h1>
-            
-            <!-- ✅ Required article with img inside -->
+            <img src="images/hero-image.jpg" alt="White water rafting adventure on wild river">
+            <h1>Rapid Riders | White Water Rafting Adventures</h1>
             <article>
-                <img src="images/rafting1.jpg" alt="Rapid Riders rafting adventure">
-                <p>Experience the thrill of white water rafting with Rapid Riders! Our expert guides and top-quality equipment ensure safety and excitement on every trip. We believe in adventure, teamwork, and the joy of conquering the rapids together!</p>
+                <img src="images/happy-client.jpg"
+                  alt="Happy client enjoying white water rafting experience">
+                <p>Our mission is to provide thrilling, safe, and unforgettable white water rafting
+                    experiences that connect people with nature and create lasting memories. We
+                    believe in adventure, teamwork, and the joy of conquering the rapids together!
+                </p>
             </article>
         </div>
 
-        <!-- ✅ FIRST SECTION: Must have h2 "History" and a p -->
-        <section>
+        <!-- History Section - 3 Column Layout (Text | Image | Text) -->
+        <section class="history">
             <h2>History</h2>
-            <p>Founded in 2010 by passionate river enthusiasts, Rapid Riders began with a single raft and a dream to share the excitement of white water rafting with the world. Over the past decade, we've grown into one of the most trusted rafting companies, having guided over 50,000 adventurers through the most spectacular river canyons. Our journey started on the wild Colorado River, and today we operate across multiple rivers, always prioritizing safety and sustainable tourism. Our commitment to safety, environmental stewardship, and exceptional customer service has made us a leader in the industry. We maintain a perfect safety record and employ only the most experienced, certified guides in the business.</p>
+            <div class="history-content">
+                <p>Founded in 2010 by passionate river enthusiasts, Rapid Riders began with a single
+                    raft and a dream to share the excitement of white water rafting with the world.
+                    Over the past decade, we've grown into one of the most trusted rafting
+                    companies, having guided over 50,000 adventurers through the most spectacular
+                    river canyons. Our journey started on the wild Colorado River, and today we
+                    operate across three continents, always prioritizing safety and sustainable
+                    tourism. Every rapid we conquer reinforces our commitment to excellence and
+                    unforgettable experiences.</p>
+                <img src="images/history-image.jpeg"
+                  alt="Early days of Rapid Riders rafting company - vintage rafting team">
+                <p>Our commitment to safety, environmental stewardship, and exceptional customer
+                    service has made us a leader in the industry. Today, we operate on three major
+                    rivers and continue to explore new adventures for our clients. We've received
+                    numerous awards for excellence in adventure tourism and maintain a perfect
+                    safety record. From humble beginnings with a single inflatable raft, we now
+                    boast a fleet of 25 state-of-the-art rafts, professional guides certified in
+                    wilderness first aid, and a reputation that attracts thrill-seekers from around
+                    the globe. Our story is one of passion, resilience, and the relentless pursuit
+                    of adventure.</p>
+            </div>
         </section>
 
-        <!-- ✅ SECOND SECTION: Must have h2 "Adventure Awaits You!" -->
-        <section>
+        <!-- Adventures Section - 5 Images with Figure/Figcaption -->
+        <section class="adventures">
             <h2>Adventure Awaits You!</h2>
-            <p>Join us for the adventure of a lifetime! Whether you're a beginner seeking gentle rapids or an expert looking for the ultimate challenge, we have the perfect trip for you. Our professional guides, top-of-the-line equipment, and breathtaking locations combine to create memories that will last a lifetime. Book your rafting adventure today and discover why thousands choose Rapid Riders for their white water experience! The river is calling, and adventure awaits you around every bend. Don't wait - secure your spot today and experience the thrill of a lifetime!</p>
+            <div class="adventure-gallery">
+                <figure>
+                    <img src="images/rafting1.jpg"
+                      alt="Los Dientes del Diablo rapids - intense white water">
+                    <figcaption>Los Dientes del Diablo</figcaption>
+                </figure>
+                <figure>
+                    <img src="images/rafting2.jpg" alt="Big Mallard rapid - challenging waves">
+                    <figcaption>Big Mallard</figcaption>
+                </figure>
+                <figure>
+                    <img src="images/rafting3.jpg" alt="Half Day Adventure - scenic rafting trip">
+                    <figcaption>Half Day Adventure</figcaption>
+                </figure>
+                <figure>
+                    <img src="images/rafting4.jpg"
+                      alt="Full Day Expedition - extended river journey">
+                    <figcaption>Full Day Expedition</figcaption>
+                </figure>
+                <figure>
+                    <img src="images/rafting5.jpeg"
+                      alt="Extreme Rapids Challenge - professional grade rapids">
+                    <figcaption>Extreme Rapids Challenge</figcaption>
+                </figure>
+            </div>
         </section>
     </main>
 
@@ -54,13 +102,13 @@
         <p>&copy; 2026 Rapid Riders | Created by Adekunle David Lawrence</p>
         <nav class="socialmedia">
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-                <img src="images/facebook-icon.jpg" alt="Facebook">
+                <img src="images/facebook-icon.jpg" alt="Follow us on Facebook">
             </a>
             <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                <img src="images/twitter-icon.jpg" alt="Twitter">
+                <img src="images/twitter-icon.jpg" alt="Follow us on Twitter">
             </a>
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-                <img src="images/instagram-icon.jpg" alt="Instagram">
+                <img src="images/instagram-icon.jpg" alt="Follow us on Instagram">
             </a>
         </nav>
     </footer>
